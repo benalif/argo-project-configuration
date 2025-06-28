@@ -4,7 +4,7 @@ metadata:
   name: argo-project-deployment
   namespace: argocd-project
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: argocdproject
