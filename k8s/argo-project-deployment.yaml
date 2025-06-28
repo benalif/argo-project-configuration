@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argo-project-deployment
+  namespace: argocd-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: argocdproject
+  template:
+    metadata:
+      labels:
+        app: argocdproject
+    spec:
+      containers:
+        - name: argocdproject
+          image: benalif/argo-project:1.0.0-SNAPSHOT
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-project-svc
+  namespace: argocd-project
+spec:
+  selector:
+    app: argocdproject
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 80
+  type: LoadBalancer
