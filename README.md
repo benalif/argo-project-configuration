@@ -51,7 +51,7 @@ cd argo-project-configuration
 ```
 Apply the Argo CD Application resource:
 ```
-kubectl apply -f applications/springboot-app.yaml
+kubectl apply -f application.yaml
 ```
 <img width="1718" alt="Screenshot 2025-06-28 at 6 02 59 PM" src="https://github.com/user-attachments/assets/49d28dd7-077a-4202-8b8b-d11dec99c19a" />
 
